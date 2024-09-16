@@ -1,0 +1,16 @@
+syntax = "proto3";
+option go_package = "goTeam00/test";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+
+service TransmiteService {
+  rpc StreamEntries(google.protobuf.Empty) returns (stream Entry);
+}
+
+message Entry {
+  string session_id = 1;
+  double frequency = 2;
+  google.protobuf.Timestamp timestamp = 3;
+}
